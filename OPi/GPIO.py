@@ -466,11 +466,12 @@ def setup(channel, direction, initial=None, pull_up_down=None):
             setup(ch, direction, initial)
     else:
         if channel in _exports:
-            raise RuntimeError("Channel {0} is already configured".format(channel))
+            warnings.warn("Channel {0} is already configured".format(channel))
         pin = get_gpio_pin(_mode, channel)
         try:
             sysfs.export(pin)
         except (OSError, IOError) as e:
+            warnings.warn("Cant export pin %s, %s" % (pin, repr(e)))
             if e.errno == 16:   # Device or resource busy
                 if _gpio_warnings:
                     warnings.warn("Channel {0} is already in use, continuing anyway. Use GPIO.setwarnings(False) to disable warnings.".format(channel), stacklevel=2)
