@@ -81,7 +81,7 @@ _pin_map = {
         22: 192+2, # _pin_map[BOARD][15],
         23: 192+8, # _pin_map[BOARD][16],
         24: 192+9, # _pin_map[BOARD][18],
-        25: 224+6, # _pin_map[BOARD][22],
+        25: 192+1, # _pin_map[BOARD][22],
         26: 192+10, # _pin_map[BOARD][37],
         27: 224+3, # _pin_map[BOARD][13]
     },
